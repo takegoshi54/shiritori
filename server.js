@@ -2,8 +2,8 @@ import { serve } from "https://deno.land/std@0.138.0/http/server.ts";
 
 import { serveDir } from "https://deno.land/std@0.138.0/http/file_server.ts";
 
-let previousWord = "しりと";
-let alword = ["りんご"]//alword
+let previousWord = "りんご";
+let alword = []//alword
 
 console.log("Listening on http://localhost:8000");
 
