@@ -20,7 +20,7 @@ serve(async (req) => {
   if (req.method === "POST" && pathname === "/shiritori") {
     const requestJson = await req.json();
     const nextWord = requestJson.nextWord;
-    if (nextWord.length > 0 &&  "ん" == nextWord.charAt(0)) {
+    if (nextWord.length > 0 &&  "ん" == nextWord.charAt(nextWord.length - 1)) {
       return new Response("「ん」で終わったのであなたの負けです", { status: 400 });
     }
     if (nextWord.length > 0 && previousWord.charAt(previousWord.length - 1) !== nextWord.charAt(0)) {
