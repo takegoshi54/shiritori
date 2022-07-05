@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std@0.138.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.138.0/http/file_server.ts";
 
 let previousWord = "しりとり";
-let alword = ['りんご']
+let alword = ["りんご"]//alword
 
 console.log("Listening on http://localhost:8000");
 
@@ -20,7 +20,12 @@ serve(async (req) => {
   if (req.method === "POST" && pathname === "/shiritori") {
     const requestJson = await req.json();
     const nextWord = requestJson.nextWord;
-    if (nextWord.length > 0 &&  "ん" == nextWord.charAt(nextWord.length - 1)) {
+    for(let i=0;i<alword.length;++i){
+      if(nextWord==alword[i]){
+        return new Response("すでに出ている言葉です", { status: 400 });
+      }
+    }
+    if (nextWord.length > 0 &&  "ん" == nextWord.charAt(nextWord.length - 1)) { //「ん」を検出
       return new Response("「ん」で終わったのであなたの負けです", { status: 400 });
     }
     if (nextWord.length > 0 && previousWord.charAt(previousWord.length - 1) !== nextWord.charAt(0)) {
@@ -28,6 +33,7 @@ serve(async (req) => {
       }
       
     previousWord = nextWord;
+    alword.push(nextWord);//alword
     return new Response(previousWord);
   }
 
