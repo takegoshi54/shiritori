@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std@0.138.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.138.0/http/file_server.ts";
 
 let randomword=["りんご","ごりら","らっぱ","きつね","ねこ"]
-let firstword = randomword[Math.floor(Math.random() * 5)]//5つの単語からランダム
+let firstword = randomword[Math.floor(Math.random() * 5)]//5つの単語からランダムj
 let previousWord = firstword;
 let alword = [];
 alword.push(firstword);//最初の単語
