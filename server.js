@@ -2,8 +2,11 @@ import { serve } from "https://deno.land/std@0.138.0/http/server.ts";
 
 import { serveDir } from "https://deno.land/std@0.138.0/http/file_server.ts";
 
-let previousWord = "りんご";
-let alword = []//alword
+let randomword=["りんご","ごりら","らっぱ","きつね","ねこ"]
+let firstword = randomword[Math.floor(Math.random() * 5)]//5つの単語からランダム
+let previousWord = firstword;
+let alword = [];
+alword.push(firstword);//最初の単語
 
 console.log("Listening on http://localhost:8000");
 
@@ -26,7 +29,7 @@ serve(async (req) => {
       }
     }
     if (nextWord.length > 0 &&  "ん" == nextWord.charAt(nextWord.length - 1)) { //「ん」を検出
-      return new Response("「ん」で終わったのであなたの負けです", { status: 400 });
+      return new Response("「ん」で終わったのであなたの負けです", { status: 400 }); //TODO ゲーム終了
     }
     if (nextWord.length > 0 && previousWord.charAt(previousWord.length - 1) !== nextWord.charAt(0)) {
         return new Response("前の単語に続いていません。", { status: 400 });
