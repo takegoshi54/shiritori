@@ -3,7 +3,7 @@ import { serve } from "https://deno.land/std@0.138.0/http/server.ts";
 import { serveDir } from "https://deno.land/std@0.138.0/http/file_server.ts";
 
 let randomword=["りんご","ごりら","らっぱ","きつね","ねこ"]
-let firstword = randomword[Math.floor(Math.random() * 5)]//5つの単語からランダムj
+let firstword = randomword[Math.floor(Math.random() * 5)]//5つの単語からランダム
 let previousWord = firstword;
 let alword = [];
 alword.push(firstword);//最初の単語
@@ -23,6 +23,10 @@ serve(async (req) => {
   if (req.method === "POST" && pathname === "/shiritori") {
     const requestJson = await req.json();
     const nextWord = requestJson.nextWord;
+
+    if(!(nextWord.match(/^[ぁ-んー　]*$/))){
+      return new Response("単語はひらがなのみにしてください。", { status: 400 });
+    }
     for(let i=0;i<alword.length;++i){
       if(nextWord==alword[i]){
         return new Response("すでに出ている言葉です", { status: 400 });
