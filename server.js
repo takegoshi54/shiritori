@@ -24,7 +24,7 @@ serve(async (req) => {
     const requestJson = await req.json();
     const nextWord = requestJson.nextWord;
 
-    if(!(nextWord.match(/^[ぁ-んー　]*$/))){
+    if(!(nextWord.match(/^[ぁ-んー　]+$/))){
       return new Response("単語はひらがなのみにしてください。", { status: 400 });
     }
     for(let i=0;i<alword.length;++i){
