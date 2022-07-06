@@ -13,9 +13,10 @@
 <body>
 
   <h1>★しりとりゲーム★</h1>
-  <p id="previousWord">sfwfw</p>
+  <p id="previousWord"></p>
   <input id="nextWordInput" type="text" />
-  <button id="nextWordSendButton">送信</button>
+  <button id="nextWordSendButton">送信</button><br>
+
 
   <script type="module">
 window.onload = async (event) => {
@@ -29,7 +30,7 @@ window.onload = async (event) => {
   const previousWord = await response.text();
 
   const para = document.querySelector("#previousWord");
-      para.innerText = `前の単語：${previousWord}`;
+  para.innerText = `前の単語：${previousWord}`;
 
   document.querySelector("#nextWordSendButton").onclick = async (event) => {
     const nextWord = document.querySelector("#nextWordInput").value;
@@ -43,8 +44,9 @@ window.onload = async (event) => {
       return;
    }
     const previousWord = await response.text();
+
     const para = document.querySelector("#previousWord");
-    para.innerText = `前に単語：${previousWord}`;
+    para.innerText = `前の単語：${previousWord}`;
   };
 };
   </script>
