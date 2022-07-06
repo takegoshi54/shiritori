@@ -33,8 +33,8 @@ serve(async (req) => {
       }
     }
     if (nextWord.length > 0 &&  "ん" == nextWord.charAt(nextWord.length - 1)) { //「ん」を検出
-      return new Response("「ん」で終わったのであなたの負けです", { status: 400 }); //TODO ゲーム終了
       return new Response("end");
+      return new Response("「ん」で終わったのであなたの負けです", { status: 400 }); //TODO ゲーム終了
     }
     if (nextWord.length > 0 && previousWord.charAt(previousWord.length - 1) !== nextWord.charAt(0)) {
         return new Response("前の単語に続いていません。", { status: 400 });
