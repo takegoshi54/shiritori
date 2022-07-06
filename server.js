@@ -33,7 +33,6 @@ serve(async (req) => {
       }
     }
     if (nextWord.length > 0 &&  "ん" == nextWord.charAt(nextWord.length - 1)) { //「ん」を検出
-      return new Response("end");
       return new Response("「ん」で終わったのであなたの負けです", { status: 400 }); //TODO ゲーム終了
     }
     if (nextWord.length > 0 && previousWord.charAt(previousWord.length - 1) !== nextWord.charAt(0)) {
@@ -42,6 +41,7 @@ serve(async (req) => {
       
     previousWord = nextWord;
     alword.push(nextWord); //単語を配列に追加
+    document.write('<p>seadegjvfaeufgbajyfeefju</p>');
     return new Response(previousWord);
   }
 
