@@ -41,7 +41,6 @@ serve(async (req) => {
       
     previousWord = nextWord;
     alword.push(nextWord); //単語を配列に追加
-    document.write('<p>seadegjvfaeufgbajyfeefju</p>');
     return new Response(previousWord);
   }
 
