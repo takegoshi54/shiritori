@@ -4,6 +4,9 @@ body {
 
 }
 .content{
+    background-color: #f0f0f0;
+    border: 10px solid #f0f0f0;
+    border-radius: 7px;
     width: 800px;
     margin: 0 auto;
 }
