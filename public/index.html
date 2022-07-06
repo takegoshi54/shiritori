@@ -16,13 +16,8 @@
   <p id="previousWord"></p>
   <input id="nextWordInput" type="text" />
   <button id="nextWordSendButton">送信</button><br>
-  <p id="hiswords"></p><!--uwa-->
 
   <script type="module">
-    document.open();
-      document.write("atatatattatattaatta");
-      document.close();
-
     window.onload = async (event) => {
       await fetch("/shiritori", {
       method: "POST",
