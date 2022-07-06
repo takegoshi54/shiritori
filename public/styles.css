@@ -5,8 +5,11 @@ body {
 }
 .content{
     background-color: #f0f0f0;
-    border: 10px solid #f0f0f0;
+    border: 10px solid black;
     border-radius: 7px;
     width: 800px;
     margin: 0 auto;
+}
+h1{
+    padding: 0 0 5px 0;
 }
