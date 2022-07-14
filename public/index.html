@@ -17,6 +17,7 @@
     <p id="previousWord"></p>
    <input id="nextWordInput" type="text" />
     <button id="nextWordSendButton">送信</button>
+    <p id="rireki"></p>
   </div>
 
   <script type="module">
@@ -32,6 +33,9 @@
 
       const para = document.querySelector("#previousWord");
       para.innerText = `前の単語：${previousWord}`;
+
+      const his = document.querySelector("#rireki");
+      his.innerText = "awshgzdyahjdbvagv";
 
       document.querySelector("#nextWordSendButton").onclick = async (event) => {
         const nextWord = document.querySelector("#nextWordInput").value;
