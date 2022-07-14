@@ -6,7 +6,7 @@ let randomword=["りんご","ごりら","らっぱ","きつね","ねこ"]
 let firstword = randomword[Math.floor(Math.random() * 5)] //5つの単語からランダムで選ぶ
 let previousWord = firstword;
 let alword = []; //単語の配列
-alword.push(firstword);//最初の単語
+alword.push(firstword);//最初の単語r
 
 console.log("Listening on http://localhost:8000");
 
