@@ -17,7 +17,7 @@
     <p id="previousWord"></p>
    <input id="nextWordInput" type="text" />
     <button id="nextWordSendButton">送信</button>
-    <p id="rireki"></p>
+    <p class="ri" id="rireki"></p>
   </div>
 
   <script type="module">
@@ -30,12 +30,10 @@
 
       const response = await fetch("/shiritori");
       const previousWord = await response.text();
+      var rireki = "履歴："
 
       const para = document.querySelector("#previousWord");
       para.innerText = `前の単語：${previousWord}`;
-
-      const his = document.querySelector("#rireki");
-      his.innerText = "awshgzdyahjdbvagv";
 
       document.querySelector("#nextWordSendButton").onclick = async (event) => {
         const nextWord = document.querySelector("#nextWordInput").value;
@@ -52,6 +50,10 @@
 
         const para = document.querySelector("#previousWord");
         para.innerText = `前の単語：${previousWord}`;
+
+        rireki = rireki + `→${previousWord}`;
+        const his = document.querySelector("#rireki");//rireki
+        his.innerText = rireki;
       };
     };
   </script>
