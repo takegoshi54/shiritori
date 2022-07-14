@@ -48,12 +48,18 @@
       }
         const previousWord = await response.text();
 
-        const para = document.querySelector("#previousWord");
-        para.innerText = `前の単語：${previousWord}`;
-
         rireki = rireki + `→${previousWord}`;
         const his = document.querySelector("#rireki");//rireki
         his.innerText = rireki;
+
+        const para = document.querySelector("#previousWord");
+        if(`${previousWord}` == "END"){
+          para.innerText = "「ん」で終わったのでゲーム終了です";
+        }
+        else{
+          para.innerText = `前の単語：${previousWord}`;
+        }
+
       };
     };
   </script>
